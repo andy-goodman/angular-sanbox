@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
 import { CourseComponent } from './course/course.component';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   // add all the comoponents of tis module
@@ -13,7 +14,8 @@ import { CourseComponent } from './course/course.component';
     CourseComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
