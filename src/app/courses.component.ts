@@ -1,16 +1,22 @@
 import {Component} from '@angular/core';
-import {CoursesService} from './courses.service';
-import {EmailService} from './email.service';
-
 @Component({
-  selector: 'app-courses', // <courses> -> "courses", <div class="courses"> -> ".courses", <div id="courses"> -> "#courses"
+  selector: 'app-courses',
   template: `
-
-    <button class="btn btn-primary">OK</button>
+    <h2 [style.color]="!isActive ? 'blue' : 'white'">Are you sure?</h2>
+    <button class="btn" [class]="isActive ? 'btn-primary' : ''">OK</button>
     <button class="btn">Cancel</button>
   `
 })
 export class CoursesComponent {
-  imageUrl = 'https://picsum.photos/400/200';
-  colSpan = 2;
+  isActive = true;
+
+  private invertActiveFlag() {
+    this.isActive = !this.isActive;
+    console.log('Active flag is inverted, and now it is ' + this.isActive);
+    setTimeout(() => {this.invertActiveFlag();}, 1000);
+  }
+
+  constructor() {
+    this.invertActiveFlag();
+  }
 }
