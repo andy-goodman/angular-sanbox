@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
 import { CourseComponent } from './course/course.component';
 import {CommonModule} from '@angular/common';
+import {CoursesService} from './courses.service';
 
 @NgModule({
   // add all the comoponents of tis module
@@ -17,7 +18,10 @@ import {CommonModule} from '@angular/common';
     BrowserModule,
     CommonModule
   ],
-  providers: [],
+  // Here we need to register all the dependencies and components in this module are depenndent upon
+  providers: [
+    CoursesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
