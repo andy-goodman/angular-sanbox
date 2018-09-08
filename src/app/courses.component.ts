@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {CoursesService} from './courses.service';
+import {EmailService} from './email.service';
 
 @Component({
   selector: 'app-courses', // <courses> -> "courses", <div class="courses"> -> ".courses", <div id="courses"> -> "#courses"
@@ -16,7 +17,8 @@ export class CoursesComponent {
   title = 'List of courses';
   courses;
 
-  constructor(service: CoursesService) {
-    this.courses = service.getCourses();
+  constructor(coursesService: CoursesService, emailService: EmailService) {
+    this.courses = coursesService.getCourses();
+    emailService.doSendEmail();
   }
 }
