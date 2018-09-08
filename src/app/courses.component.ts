@@ -6,12 +6,8 @@ import {EmailService} from './email.service';
   selector: 'app-courses', // <courses> -> "courses", <div class="courses"> -> ".courses", <div id="courses"> -> "#courses"
   template: `
 
-    <img src="{{ imageUrl }}" />
-    <table>
-      <tr>
-        <td [attr.colspan]="colSpan"></td>
-      </tr>
-    </table>
+    <button class="btn btn-primary">OK</button>
+    <button class="btn">Cancel</button>
   `
 })
 export class CoursesComponent {
