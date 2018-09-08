@@ -2,20 +2,20 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'app-courses',
   template: `
-    <div (click)="onDivClicked()">
-      <button class="btn btn-primary" (click)="onSave($event)">Save</button>
-    </div>
+    <input (keyup)="onKeyUp($event)" />
+    <input (keyup.enter)="onEnterKey()" />
   `
 })
 export class CoursesComponent {
 
-  private onSave($event) {
-    $event.stopPropagation();
-    console.log('Saving ... ', $event);
+  onKeyUp($event) {
+    if ($event.keyCode === 13) {
+      console.log('Enter was pressed');
+    }
   }
 
-  private onDivClicked() {
-    console.log('Div was clicked');
+  onEnterKey() {
+    console.log('Enter key pressed (onEnterKey detected)');
   }
 
 }

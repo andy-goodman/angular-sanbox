@@ -26,3 +26,31 @@ To stop bubbling:
     // other
   }
 ```
+
+##Event filtering
+To enter filter key pressed
+
+Vanila javascript way
+```html
+<input (keyup)="onKeyUp($event)" />
+```
+```javascript
+onKeyUp($event) {
+  if ($event.keyCode === 13) {
+    console.log('Enter was pressed');
+  }
+}
+```
+
+Angular event filtering
+```html
+<input (keyup.enter)="onEnterKey()" />
+```
+
+```javascript
+onEnterKey() {
+  console.log('Enter key pressed (onEnterKey detected)');
+}
+```
+
+Here we don't have to check key code in js
