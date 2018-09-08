@@ -2,21 +2,20 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'app-courses',
   template: `
-    <h2 [style.color]="!isActive ? 'blue' : 'white'">Are you sure?</h2>
-    <button class="btn" [class]="isActive ? 'btn-primary' : ''">OK</button>
-    <button class="btn">Cancel</button>
+    <div (click)="onDivClicked()">
+      <button class="btn btn-primary" (click)="onSave($event)">Save</button>
+    </div>
   `
 })
 export class CoursesComponent {
-  isActive = true;
 
-  private invertActiveFlag() {
-    this.isActive = !this.isActive;
-    console.log('Active flag is inverted, and now it is ' + this.isActive);
-    setTimeout(() => {this.invertActiveFlag();}, 1000);
+  private onSave($event) {
+    $event.stopPropagation();
+    console.log('Saving ... ', $event);
   }
 
-  constructor() {
-    this.invertActiveFlag();
+  private onDivClicked() {
+    console.log('Div was clicked');
   }
+
 }
