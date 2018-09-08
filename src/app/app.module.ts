@@ -6,13 +6,15 @@ import { CoursesComponent } from './courses.component';
 import { CourseComponent } from './course/course.component';
 import {CommonModule} from '@angular/common';
 import {CoursesService} from './courses.service';
+import {SummatyPipe} from './summary.pipe';
 
 @NgModule({
   // add all the comoponents of tis module
   declarations: [
     AppComponent,
     CoursesComponent,
-    CourseComponent
+    CourseComponent,
+    SummatyPipe
   ],
   imports: [
     BrowserModule,
