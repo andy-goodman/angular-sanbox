@@ -47,10 +47,31 @@ Angular event filtering
 <input (keyup.enter)="onEnterKey()" />
 ```
 
-```javascript
+```
 onEnterKey() {
   console.log('Enter key pressed (onEnterKey detected)');
 }
 ```
 
 Here we don't have to check key code in js
+
+
+##Template variables
+Old way to get value
+```html
+<input (keyup.enter)="onEnterKey($event)" />
+```
+```
+onEnterKey($event) {
+  console.log($event.target.value);
+}
+```
+Using template variables
+```html
+<input #email (keyup.enter)="onEnterEmail(email.value)" />
+```
+```
+onEnterEmail(email) {
+  console.log(email);
+}
+```
