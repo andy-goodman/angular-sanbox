@@ -4,3 +4,15 @@
 button {
   margin: 0 5px;
 }
+
+.glyphicon {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+.glyphicon-star {
+  background-color: green;
+}
+.glyphicon-star-empty {
+  background-color: red;
+}

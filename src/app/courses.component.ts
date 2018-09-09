@@ -2,18 +2,16 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'app-courses',
   template: `
-    <input (keyup.enter)="onEnterKey($event)" />
-    <input #email (keyup.enter)="onEnterEmail(email.value)" />
+    <input [value]="email" (keyup.enter)="email = $event.target.value; onKeyUp()" />
+    <!--<input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />-->
   `
 })
 export class CoursesComponent {
 
-  onEnterKey($event) {
-    console.log($event.target.value);
-  }
+  email = 'me@example.com';
 
-  onEnterEmail(email) {
-    console.log(email);
+  onKeyUp() {
+    console.log(this.email);
   }
 
 }

@@ -75,3 +75,10 @@ onEnterEmail(email) {
   console.log(email);
 }
 ```
+
+## Two-way binding
+```
+<input [value]="email" (keyup.enter)="email = $event.target.value; onKeyUp()" />
+```
+The same
+[()] - "banana in a box"

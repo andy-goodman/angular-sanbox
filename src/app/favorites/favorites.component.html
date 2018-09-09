@@ -1,0 +1,6 @@
+<div
+  class="favorite-icon glyphicon"
+  [class.glyphicon-star]="isFavorite"
+  [class.glyphicon-star-empty]="!isFavorite"
+  (click)="onFavClick()"
+></div>
