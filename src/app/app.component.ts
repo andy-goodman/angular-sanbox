@@ -12,4 +12,17 @@ export class AppComponent {
     {id: 2, name: 'Course2'},
     {id: 3, name: 'Course3'}
   ];
+
+  onAdd() {
+    this.courses.push({ id: 4, name: 'Course 4'});
+  }
+
+  onChange(course) {
+    course.name = 'UPDATED';
+  }
+
+  onRemove(course) {
+    let index = this.courses.indexOf(course);
+    this.courses.splice(index, 1);
+  }
 }

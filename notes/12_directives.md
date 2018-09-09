@@ -50,3 +50,6 @@ here `index` - exported value;
 `i` - local variable, which we can use inside the block
 https://angular.io/api/common/NgForOf#local-variables
 
+##Changes detection
+After the execution of an action method, angular perform it's change detection, it refreshes the dom automaticaly. For example, it can remove items from list or change some items properties.
+   
