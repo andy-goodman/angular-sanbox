@@ -8,6 +8,7 @@ import {CommonModule} from '@angular/common';
 import {CoursesService} from './courses.service';
 import {SummatyPipe} from './summary.pipe';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
 
 @NgModule({
   // add all the comoponents of tis module
@@ -16,7 +17,8 @@ import { FavoritesComponent } from './favorites/favorites.component';
     CoursesComponent,
     CourseComponent,
     SummatyPipe,
-    FavoritesComponent
+    FavoritesComponent,
+    BootstrapPanelComponent
   ],
   imports: [
     BrowserModule,

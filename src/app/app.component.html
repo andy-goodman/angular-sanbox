@@ -1,7 +1,11 @@
 <div style="text-align:center">
   <h1>My Angular excericize box</h1>
-  <app-favorites
-    [isFavorite]="post.isFavorite"
-    (change)="onFavoriteChanged($event)"
-  ></app-favorites>
+  <app-bootstrap-panel>
+    <!-- div.heading+div.body -->
+    <div class="heading"></div>
+    <div class="body">
+      <h2>Body</h2>
+      <p>Some content here</p>
+    </div>
+  </app-bootstrap-panel>
 </div>
