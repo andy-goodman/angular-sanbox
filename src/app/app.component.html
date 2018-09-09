@@ -1,4 +1,7 @@
 <div style="text-align:center">
   <h1>My Angular excericize box</h1>
-  <app-favorites [isFavorite]="post.isFavorite"></app-favorites>
+  <app-favorites
+    [isFavorite]="post.isFavorite"
+    (change)="onFavoriteChanged()"
+  ></app-favorites>
 </div>

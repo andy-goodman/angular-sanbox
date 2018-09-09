@@ -23,14 +23,36 @@ It calls alias. IT is not recommended by the validator
 
 Not recommended, makes refactoring harder https://angular.io/guide/styleguide#style-05-12 
 
-##Output properties
-We use output properties to raise events from this custom component
 ```
 @Component({
   ...
   inputs: ['isFavorite']
 })
 ```
+
+##Output properties
+We use output properties to raise events from this custom component
+
+Declaring an output field
+```
+@Output()
+change = new EventEmitter();
+```
+
+Somewhere in code
+```
+this.change.emit();
+```
+
+In parent component template
+```
+<app-favorites
+  [isFavorite]="post.isFavorite"
+  (change)="onFavoriteChanged()"
+></app-favorites>
+```
+
+onFavoriteChanged is a method in a parent component
 
 ##API
 The combination of import and output properties for a component make up what we call the public API for the component
