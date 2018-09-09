@@ -11,9 +11,10 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
 import { JustButtonComponent } from './just-button/just-button.component';
 import { TraversalComponent } from './transversal/traversal.component';
+import { InputFormatDirective } from './input-format.directive';
 
 @NgModule({
-  // add all the comoponents of tis module
+  // add all the comoponents, pipes and directives of tis module
   declarations: [
     AppComponent,
     CoursesComponent,
@@ -22,7 +23,8 @@ import { TraversalComponent } from './transversal/traversal.component';
     FavoritesComponent,
     BootstrapPanelComponent,
     JustButtonComponent,
-    TraversalComponent
+    TraversalComponent,
+    InputFormatDirective
   ],
   imports: [
     BrowserModule,

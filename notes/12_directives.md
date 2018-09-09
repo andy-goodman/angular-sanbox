@@ -105,3 +105,7 @@ is equals to
   Save
 </button>
 ```
+
+##Custom directive
+To build a custom directive, use @HostListener to subscribe to the event raised by DOM object. You can pass data into a directive, using input properties. If you have only one property, we can use thr selector of that directive as an alias of that property.  
+Example InputFormatDirective
