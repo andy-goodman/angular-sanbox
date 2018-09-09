@@ -14,8 +14,8 @@ isFavorite: boolean;
 
 Also we can skip it's name in decorator, because it is recommended not to change it. So nothing wrong with skipping it
 ```
-  @Input()
-  isFavorite: boolean;
+@Input()
+isFavorite: boolean;
 ```
 It calls alias. IT is not recommended by the validator
 
@@ -53,6 +53,24 @@ In parent component template
 ```
 
 onFavoriteChanged is a method in a parent component
+
+### Passing data along with output event
+Parameter of the emit method will bw available in all subscribers of the event.
+Put any parameter in emit mothod and catch it in onFavoriteChanged
+
+In template mention it with $event parameter
+```
+<app-favorites
+  [isFavorite]="post.isFavorite"
+  (change)="onFavoriteChanged($event)"
+></app-favorites>
+```  
+
+Aliases in output properties is also banned by the validator
+```
+@Output('click') // don't do it, but syntax exists
+click = new EventEmitter();
+```
 
 ##API
 The combination of import and output properties for a component make up what we call the public API for the component
