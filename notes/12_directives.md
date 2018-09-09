@@ -53,3 +53,14 @@ https://angular.io/api/common/NgForOf#local-variables
 ##Changes detection
 After the execution of an action method, angular perform it's change detection, it refreshes the dom automaticaly. For example, it can remove items from list or change some items properties.
    
+By default angular tracks objects by their identity - object address in the memory. We can instruct angular to use a different mechnism to track objects.
+
+```html
+<li *ngFor="let course of courses; trackBy: trackCourse">
+  {{ course.name }}
+</li>
+```
+
+If you are dealing with a large list with a complex markup and you do observe performance problems, you can use trabkBy to upgrade performance.
+
+In a simple page you can not worry about it, because you have to write more code and can not get any benefits, angular works well from the box here.

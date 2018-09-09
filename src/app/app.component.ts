@@ -7,11 +7,7 @@ import {FavoriteChangedEventArgs} from './favorites/favorites.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  courses = [
-    {id: 1, name: 'Course1'},
-    {id: 2, name: 'Course2'},
-    {id: 3, name: 'Course3'}
-  ];
+  courses = [];
 
   onAdd() {
     this.courses.push({ id: 4, name: 'Course 4'});
@@ -24,5 +20,17 @@ export class AppComponent {
   onRemove(course) {
     let index = this.courses.indexOf(course);
     this.courses.splice(index, 1);
+  }
+
+  loadCourses() {
+    this.courses = [
+      {id: 1, name: 'Course1'},
+      {id: 2, name: 'Course2'},
+      {id: 3, name: 'Course3'}
+    ];
+  }
+
+  trackCourse(index, course) {
+    course ? course.id : undefined;
   }
 }
