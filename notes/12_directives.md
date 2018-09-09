@@ -36,3 +36,17 @@ Here all two divs exists in DOM, but one of them will be hidden
 But (!) if building element tree is costly, you shouldn't use ngIf. It's better to keep it in the dom and use 'hidden' attribute
 
 If you are dealing with small tree of objects, it doesn't matter which approach you choose.
+
+
+##ngFor
+```html
+<ul>
+  <li *ngFor="let course of courses; index as i">
+    {{ i }} - {{ course.name }}
+  </li>
+</ul>
+```
+here `index` - exported value;
+`i` - local variable, which we can use inside the block
+https://angular.io/api/common/NgForOf#local-variables
+
