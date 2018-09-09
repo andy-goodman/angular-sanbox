@@ -1,9 +1,1 @@
-<button (click)="loadCourses()">Load courses</button>
-<button (click)="onAdd()">Add</button>
-<ul>
-  <li *ngFor="let course of courses; trackBy: trackCourse">
-    {{ course.name }}
-    <button (click)="onChange(course)">Rename</button>
-    <button (click)="onRemove(course)">Remove</button>
-  </li>
-</ul>
+<app-just-button></app-just-button>

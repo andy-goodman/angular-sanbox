@@ -81,3 +81,27 @@ attribute directive
 ```
 
 Key-value pairs, were key is a class name, and value is a condition, on which this class will be rendered in the DOM
+
+
+##ngStyle
+```
+<button
+  [style.backgroundColor]="canSave ? 'blue' : 'gray'"
+  [style.color]="canSave ? 'white' : 'black'"
+  [style.fontWeight]="canSave ? 'bold' : 'normal'"
+  >
+  Save
+</button>
+```
+is equals to
+```
+<button
+  [ngStyle]="{
+    'backgroundColor': canSave ? 'blue' : 'gray',
+    'color': canSave ? 'white' : 'black',
+    'fontWeight': canSave ? 'bold' : 'normal'
+  }"
+  >
+  Save
+</button>
+```
