@@ -10,6 +10,7 @@ import {SummatyPipe} from './summary.pipe';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
 import { JustButtonComponent } from './just-button/just-button.component';
+import { TraversalComponent } from './transversal/traversal.component';
 
 @NgModule({
   // add all the comoponents of tis module
@@ -20,7 +21,8 @@ import { JustButtonComponent } from './just-button/just-button.component';
     SummatyPipe,
     FavoritesComponent,
     BootstrapPanelComponent,
-    JustButtonComponent
+    JustButtonComponent,
+    TraversalComponent
   ],
   imports: [
     BrowserModule,
