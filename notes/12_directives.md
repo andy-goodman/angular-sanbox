@@ -64,3 +64,20 @@ By default angular tracks objects by their identity - object address in the memo
 If you are dealing with a large list with a complex markup and you do observe performance problems, you can use trabkBy to upgrade performance.
 
 In a simple page you can not worry about it, because you have to write more code and can not get any benefits, angular works well from the box here.
+
+
+##ngClass
+attribute directive
+```
+[class.glyphicon-star]="isFavorite"
+[class.glyphicon-star-empty]="!isFavorite"
+```
+
+```
+[ngClass]="{
+  'glyphicon-star': isFavorite,
+  'glyphicon-star-empty': !isFavorite
+}"
+```
+
+Key-value pairs, were key is a class name, and value is a condition, on which this class will be rendered in the DOM
