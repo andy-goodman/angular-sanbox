@@ -12,6 +12,7 @@ import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.compo
 import { JustButtonComponent } from './just-button/just-button.component';
 import { TraversalComponent } from './transversal/traversal.component';
 import { InputFormatDirective } from './input-format.directive';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @NgModule({
   // add all the comoponents, pipes and directives of tis module
@@ -24,7 +25,8 @@ import { InputFormatDirective } from './input-format.directive';
     BootstrapPanelComponent,
     JustButtonComponent,
     TraversalComponent,
-    InputFormatDirective
+    InputFormatDirective,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,
