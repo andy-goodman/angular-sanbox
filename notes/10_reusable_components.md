@@ -12,9 +12,16 @@ There are two ways to mark field as an input property
 isFavorite: boolean;
 ```
 
+Also we can skip it's name in decorator, because it is recommended not to change it. So nothing wrong with skipping it
+```
+  @Input()
+  isFavorite: boolean;
+```
+It calls alias. IT is not recommended by the validator
+
 2) "Magic" string
 
-Not recommended, makes refactoring harder https://angular.io/guide/styleguide#style-05-12
+Not recommended, makes refactoring harder https://angular.io/guide/styleguide#style-05-12 
 
 ##Output properties
 We use output properties to raise events from this custom component
