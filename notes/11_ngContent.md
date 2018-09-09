@@ -24,3 +24,18 @@ In a template of a target component place and ng-content tag
   </div>
 </div>
 ```
+
+To get of a noisy divs in a result page use ng-container 
+
+```
+<app-bootstrap-panel>
+  <!-- div.heading+div.body -->
+  <ng-container class="heading">
+    <h1>Heading</h1>
+  </ng-container>
+  <ng-container class="body">
+    <h2>Body</h2>
+    <p>Some content here</p>
+  </ng-container>
+</app-bootstrap-panel>
+```

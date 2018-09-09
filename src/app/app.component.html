@@ -2,10 +2,12 @@
   <h1>My Angular excericize box</h1>
   <app-bootstrap-panel>
     <!-- div.heading+div.body -->
-    <div class="heading"></div>
-    <div class="body">
+    <ng-container class="heading">
+      <h1>Heading</h1>
+    </ng-container>
+    <ng-container class="body">
       <h2>Body</h2>
       <p>Some content here</p>
-    </div>
+    </ng-container>
   </app-bootstrap-panel>
 </div>
