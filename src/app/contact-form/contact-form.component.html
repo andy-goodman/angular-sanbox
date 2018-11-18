@@ -48,6 +48,16 @@
       rows="10"
       class="form-control"
     ></textarea>
+    <!-- div>label>input[type=checkbox] -->
+    <div>
+      <label>
+        <input type="checkbox" ngModel name="isSubscribed"> Subscribe to the mailing list
+      </label>
+    </div>
+    <p>
+      <!-- Diagnostic tool to see the object -->
+      {{ f.value | json }}
+    </p>
   </div>
   <button
     class="btn btn-primary"
