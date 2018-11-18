@@ -16,3 +16,9 @@ button {
 .glyphicon-star-empty {
   background-color: red;
 }
+
+
+/* also there is style ng-pristine */
+.form-control.ng-invalid.ng-touched {
+  border: 2px solid red;
+}
