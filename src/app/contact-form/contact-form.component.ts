@@ -7,6 +7,11 @@ import { Component } from '@angular/core';
 })
 export class ContactFormComponent {
 
+  private contactMethods = [
+    {id: 1, name: 'E-mail'},
+    {id: 2, name: 'Phone'}
+  ];
+
   log(message: HTMLInputElement) {
     console.log('message', message);
   }
