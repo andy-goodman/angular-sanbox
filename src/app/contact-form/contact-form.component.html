@@ -1,18 +1,45 @@
 <form>
   <div class="form-group">
     <label for="firstName">First name</label>
-    <input ngModel minlength="3" maxlength="10" pattern="banana" required (change)="log(firstNameModel)" #firstNameModel="ngModel" name="firstName" id="firstName" type="text" class="form-control" />
-    <div class="alert alert-danger" *ngIf="firstNameModel.touched && !firstNameModel.valid">
-      <div *ngIf="firstNameModel.errors.required">The first name is required</div>
-      <div *ngIf="firstNameModel.errors.minlength">The first name should me minimum {{ firstNameModel.errors.minlength.requiredLength }} characters</div>
-      <div *ngIf="firstNameModel.errors.maxlength">The first name should me maximum 10 characters</div>
-      <div *ngIf="firstNameModel.errors.pattern">The first name is not matches to the pattern</div>
+    <input
+      minlength="3"
+      maxlength="10"
+      pattern="banana"
+      required
+      ngModel
+      #firstNameModel="ngModel"
+      name="firstName"
+      id="firstName"
+      type="text"
+      (change)="log(firstNameModel)"
+      class="form-control" />
+    <div
+      class="alert alert-danger"
+      *ngIf="firstNameModel.touched && !firstNameModel.valid">
+      <div *ngIf="firstNameModel.errors.required">
+        The first name is required
+      </div>
+      <div *ngIf="firstNameModel.errors.minlength">
+        The first name should me minimum {{ firstNameModel.errors.minlength.requiredLength }} characters
+      </div>
+      <div *ngIf="firstNameModel.errors.maxlength">
+        The first name should me maximum 10 characters
+      </div>
+      <div *ngIf="firstNameModel.errors.pattern">
+        The first name is not matches to the pattern
+      </div>
     </div>
   </div>
   <div class="form-group">
     <label for="comment">Comment</label>
-    <textarea ngModel name="comment" id="comment" cols="30" rows="10"
-              class="form-control"></textarea>
+    <textarea
+      ngModel
+      name="comment"
+      id="comment"
+      cols="30"
+      rows="10"
+      class="form-control"
+    ></textarea>
   </div>
   <button class="btn btn-primary">Submit</button>
 </form>
