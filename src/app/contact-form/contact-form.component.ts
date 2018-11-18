@@ -11,4 +11,9 @@ export class ContactFormComponent {
     console.log('message', message);
   }
 
+  submit(form) {
+    console.log('submit', form);
+    console.log('values', form.value);
+  }
+
 }
