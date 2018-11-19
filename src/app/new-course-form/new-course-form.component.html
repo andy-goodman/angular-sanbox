@@ -1,4 +1,13 @@
-<form>
+<form [formGroup]="form"> <!-- (property binding) bind this form element to field of the component -->
+
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" formControlName="name" />
+
+  <div class="form-group" formGroupName="contact"> <!-- subgroup in form -->
+    <input type="text" name="email" />
+    <input type="text" name="phone" />
+  </div>
+
   <input
     class="form-control"
     type="text"

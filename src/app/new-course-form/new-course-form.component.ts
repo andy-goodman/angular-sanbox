@@ -20,11 +20,11 @@ export class NewCourseFormComponent {
 
   constructor(fb: FormBuilder) {
     this.form = fb.group({
-      /*name: [fb.control('', Validators.required)],
+      name: [fb.control('', Validators.required)],
       contact: fb.group({
         email: [],
         phone: []
-      }),*/
+      }),
       topics: fb.array([])
     });
   }
