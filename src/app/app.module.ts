@@ -15,6 +15,7 @@ import { InputFormatDirective } from './input-format.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import {FormsModule, NgModel, ReactiveFormsModule} from '@angular/forms';
 import {SignupFormComponent} from './signup-form/signup-form.component';
+import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
 
 @NgModule({
   // add all the components, pipes and directives of tis module
@@ -29,7 +30,8 @@ import {SignupFormComponent} from './signup-form/signup-form.component';
     TraversalComponent,
     InputFormatDirective,
     ContactFormComponent,
-    SignupFormComponent
+    SignupFormComponent,
+    NewCourseFormComponent
   ],
   imports: [
     BrowserModule,
