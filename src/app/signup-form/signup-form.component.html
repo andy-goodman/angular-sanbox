@@ -3,9 +3,10 @@
         <label for="username">Username</label>
         <input
             formControlName="username"
-            id="username" 
+            id="username"
             type="text" 
             class="form-control">
+        <div *ngIf="form.get('username').touched && form.get('username').invalid" class="alert alert-danger">Username is required</div>
     </div>
     <div class="form-group">
         <label for="password">Password</label>
@@ -14,6 +15,7 @@
             id="password" 
             type="text" 
             class="form-control">
+        <div class="alert alert-danger">Password is required</div>
     </div>
-    <button class="btn btn-primary" type="submit">Sign Up</button>
+    <button *ngIf="password.touched && password.valid" class="btn btn-primary" type="submit">Sign Up</button>
 </form>
