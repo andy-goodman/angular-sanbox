@@ -13,7 +13,7 @@ import { JustButtonComponent } from './just-button/just-button.component';
 import { TraversalComponent } from './transversal/traversal.component';
 import { InputFormatDirective } from './input-format.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
-import {FormsModule, NgModel} from '@angular/forms';
+import {FormsModule, NgModel, ReactiveFormsModule} from '@angular/forms';
 import {SignupFormComponent} from './signup-form/signup-form.component';
 
 @NgModule({
@@ -33,7 +33,8 @@ import {SignupFormComponent} from './signup-form/signup-form.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   // Here we need to register all the dependencies and components in this module are depenndent upon
   providers: [

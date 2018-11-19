@@ -7,3 +7,4 @@ Instead of letting Angular creating objects for us, we are going to create then 
 - Easier to unit-test
 
  
+Both, FormControl and FormGroup inherits AbstractControl 
