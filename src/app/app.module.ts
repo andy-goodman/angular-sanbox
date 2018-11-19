@@ -14,6 +14,7 @@ import { TraversalComponent } from './transversal/traversal.component';
 import { InputFormatDirective } from './input-format.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import {FormsModule, NgModel} from '@angular/forms';
+import {SignupFormComponent} from './signup-form/signup-form.component';
 
 @NgModule({
   // add all the components, pipes and directives of tis module
@@ -27,7 +28,8 @@ import {FormsModule, NgModel} from '@angular/forms';
     JustButtonComponent,
     TraversalComponent,
     InputFormatDirective,
-    ContactFormComponent
+    ContactFormComponent,
+    SignupFormComponent
   ],
   imports: [
     BrowserModule,
