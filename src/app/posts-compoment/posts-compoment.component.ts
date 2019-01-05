@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Http} from '@angular/http';
+import {PostsService} from '../services/posts.service';
 
 @Component({
   selector: 'app-posts-compoment',
@@ -9,13 +9,12 @@ import {Http} from '@angular/http';
 export class PostsCompomentComponent implements OnInit {
 
   posts: any[];
-  private url: string = 'http://jsonplaceholder.typicode.com/posts';
 
-  constructor(private http: Http) {
+  constructor(private postService: PostsService) {
   }
 
   ngOnInit(): void {
-    this.http.get(this.url)
+    this.postService.getPosts()
       .subscribe( response => {
         this.posts = response.json();
       });
@@ -25,7 +24,7 @@ export class PostsCompomentComponent implements OnInit {
     const post: any = {
       title: input.value
     };
-    this.http.post(this.url, JSON.stringify(post))
+    this.postService.createPost(post)
       .subscribe(
         response => {
           post.id = response.json().id;
@@ -37,19 +36,15 @@ export class PostsCompomentComponent implements OnInit {
   }
 
   updatePost(post: any) {
-    this.http.patch(this.url + '/' + post.id, JSON.stringify( {
-        isRead: true
-      }))
+    this.postService.setPostRead(post)
       .subscribe( response => {
         console.log(response.json());
       });
   }
 
   deletePost(post: any) {
-    console.log('attempting to delete post', post);
-    this.http.delete(this.url + '/' + post.id)
+    this.postService.deletePost(post.id)
       .subscribe(response => {
-        console.log('post deleted', post);
         const indexOfDeletedPost = this.posts.indexOf(post);
         this.posts.splice(indexOfDeletedPost, 1);
       });
