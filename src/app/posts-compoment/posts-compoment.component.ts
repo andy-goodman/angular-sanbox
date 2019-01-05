@@ -15,9 +15,15 @@ export class PostsCompomentComponent implements OnInit {
 
   ngOnInit(): void {
     this.postService.getPosts()
-      .subscribe( response => {
-        this.posts = response.json();
-      });
+      .subscribe(
+          response => {
+          this.posts = response.json();
+        },
+          error => {
+          alert('Unhandled error!');
+          console.log(error);
+        }
+      );
   }
 
   createPost(input: HTMLInputElement) {
@@ -31,22 +37,38 @@ export class PostsCompomentComponent implements OnInit {
           this.posts.splice(0, 0, post);
           input.value = '';
           console.log(response.json());
+        },
+        error => {
+          alert('Unhandled error!');
+          console.log(error);
         }
       );
   }
 
   updatePost(post: any) {
     this.postService.setPostRead(post)
-      .subscribe( response => {
-        console.log(response.json());
-      });
+      .subscribe(
+        response => {
+          console.log(response.json());
+        },
+        error => {
+          alert('Unhandled error!');
+          console.log(error);
+        }
+      );
   }
 
   deletePost(post: any) {
     this.postService.deletePost(post.id)
-      .subscribe(response => {
-        const indexOfDeletedPost = this.posts.indexOf(post);
-        this.posts.splice(indexOfDeletedPost, 1);
-      });
+      .subscribe(
+        response => {
+          const indexOfDeletedPost = this.posts.indexOf(post);
+          this.posts.splice(indexOfDeletedPost, 1);
+        },
+        error => {
+          alert('Unhandled error!');
+          console.log(error);
+        }
+      );
   }
 }
