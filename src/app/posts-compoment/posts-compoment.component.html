@@ -8,7 +8,12 @@
     <button
       (click)="updatePost(post)"
       class="btn btn-default btn-sm">
-      Update
+      Mark as read
+    </button>
+    <button
+      (click)="deletePost(post)"
+      class="btn btn-default btn-sm">
+      Delete
     </button>
     {{post.title}}
   </li>

@@ -41,4 +41,14 @@ export class PostsCompomentComponent {
         console.log(response.json());
       });
   }
+
+  deletePost(post: any) {
+    console.log('attempting to delete post', post);
+    this.http.delete(this.url + '/' + post.id)
+      .subscribe(response => {
+        console.log('post deleted', post);
+        const indexOfDeletedPost = this.posts.indexOf(post);
+        this.posts.splice(indexOfDeletedPost, 1);
+      });
+  }
 }
