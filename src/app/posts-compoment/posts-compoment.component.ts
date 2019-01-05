@@ -6,13 +6,16 @@ import {Http} from '@angular/http';
   templateUrl: './posts-compoment.component.html',
   styleUrls: ['./posts-compoment.component.css']
 })
-export class PostsCompomentComponent {
+export class PostsCompomentComponent implements OnInit {
 
   posts: any[];
   private url: string = 'http://jsonplaceholder.typicode.com/posts';
 
   constructor(private http: Http) {
-    http.get(this.url)
+  }
+
+  ngOnInit(): void {
+    this.http.get(this.url)
       .subscribe( response => {
         this.posts = response.json();
       });
