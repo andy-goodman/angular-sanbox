@@ -18,10 +18,10 @@ export class PostsCompomentComponent implements OnInit {
   ngOnInit(): void {
     this.postService.getPosts()
       .subscribe(
-          response => {
+        response => {
           this.posts = response.json();
         },
-          error => {
+        error => {
           alert('Unhandled error!');
           console.log(error);
         }
@@ -69,19 +69,19 @@ export class PostsCompomentComponent implements OnInit {
   }
 
   deletePost(post: any) {
+    const indexOfDeletedPost = this.posts.indexOf(post);
+    this.posts.splice(indexOfDeletedPost, 1);
+
     this.postService.deletePost(post.id)
       .subscribe(
-        response => {
-          const indexOfDeletedPost = this.posts.indexOf(post);
-          this.posts.splice(indexOfDeletedPost, 1);
-        },
+        null,
         (error: AppError) => {
-          console.log('caught delete error', error, error instanceof NotFoundError);
+          this.posts.splice(indexOfDeletedPost, 0, post);
+
           if (error instanceof NotFoundError) {
             alert('This post has already been deleted');
           } else {
             alert('Unhandled error!');
-            console.log(error);
           }
         }
       );
