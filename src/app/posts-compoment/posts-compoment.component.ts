@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PostsService} from '../services/posts.service';
+import {AppError} from '../common/app.error';
+import {NotFoundError} from '../common/not-found.error';
 
 @Component({
   selector: 'app-posts-compoment',
@@ -69,8 +71,9 @@ export class PostsCompomentComponent implements OnInit {
           const indexOfDeletedPost = this.posts.indexOf(post);
           this.posts.splice(indexOfDeletedPost, 1);
         },
-        (error: Response) => {
-          if (error.status === 404) {
+        (error: AppError) => {
+          console.log('caught delete error', error, error instanceof NotFoundError);
+          if (error instanceof NotFoundError) {
             alert('This post has already been deleted');
           } else {
             alert('Unhandled error!');
