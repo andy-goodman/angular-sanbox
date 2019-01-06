@@ -39,8 +39,12 @@ export class PostsCompomentComponent implements OnInit {
           console.log(response.json());
         },
         error => {
-          alert('Unhandled error!');
-          console.log(error);
+          if (error.status === 400) {
+            // this.form.setErrors(error.json());
+          } else {
+            alert('Unhandled error!');
+            console.log(error);
+          }
         }
       );
   }
@@ -65,9 +69,13 @@ export class PostsCompomentComponent implements OnInit {
           const indexOfDeletedPost = this.posts.indexOf(post);
           this.posts.splice(indexOfDeletedPost, 1);
         },
-        error => {
-          alert('Unhandled error!');
-          console.log(error);
+        (error: Response) => {
+          if (error.status === 404) {
+            alert('This post has already been deleted');
+          } else {
+            alert('Unhandled error!');
+            console.log(error);
+          }
         }
       );
   }
