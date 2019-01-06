@@ -32,15 +32,19 @@ export class PostsCompomentComponent implements OnInit {
     const post: any = {
       title: input.value
     };
+    this.posts.splice(0, 0, post);
+
     this.postService.createPost(post)
       .subscribe(
         response => {
           post.id = response.json().id;
-          this.posts.splice(0, 0, post);
           input.value = '';
           console.log(response.json());
         },
         error => {
+          const newPostIndex = this.posts.indexOf(post);
+          this.posts.splice(newPostIndex, 1);
+
           if (error.status === 400) {
             // this.form.setErrors(error.json());
           } else {
