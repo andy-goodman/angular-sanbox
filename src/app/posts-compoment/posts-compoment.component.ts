@@ -17,7 +17,7 @@ export class PostsCompomentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.postService.getPosts()
+    this.postService.getAll()
       .subscribe(
         response => {
           this.posts = response.json();
@@ -38,7 +38,7 @@ export class PostsCompomentComponent implements OnInit {
     };
     this.posts.splice(0, 0, post);
 
-    this.postService.createPost(post)
+    this.postService.create(post)
       .subscribe(
         response => {
           post.id = response.json().id;
@@ -60,7 +60,7 @@ export class PostsCompomentComponent implements OnInit {
   }
 
   updatePost(post: any) {
-    this.postService.setPostRead(post)
+    this.postService.update(post)
       .subscribe(
         response => {
           console.log(response.json());
@@ -72,7 +72,7 @@ export class PostsCompomentComponent implements OnInit {
     const indexOfDeletedPost = this.posts.indexOf(post);
     this.posts.splice(indexOfDeletedPost, 1);
 
-    this.postService.deletePost(post.id)
+    this.postService.delete(post.id)
       .subscribe(
         null,
         (error: AppError) => {
