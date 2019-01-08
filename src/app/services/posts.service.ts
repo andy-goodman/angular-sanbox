@@ -12,7 +12,7 @@ import {BadInputError} from '../common/bad-input.error';
 export class PostsService {
 
   private url = 'http://jsonplaceholder.typicode.com/posts';
-  private fakeUrl = 'http://adsjsonplaceholder.typicode.com/posts';
+  private fakeUrl = 'http://asdasdasdasdadasdasdasd';
 
   constructor(private http: Http) { }
 

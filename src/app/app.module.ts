@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
@@ -18,6 +18,7 @@ import { NewCourseFormComponent } from './new-course-form/new-course-form.compon
 import { PostsCompomentComponent } from './posts-compoment/posts-compoment.component';
 import {HttpModule} from '@angular/http';
 import {PostsService} from './services/posts.service';
+import {AppErrorHandler} from './common/app-error-handler';
 
 @NgModule({
   // add all the components, pipes and directives of tis module
@@ -45,7 +46,11 @@ import {PostsService} from './services/posts.service';
   // Here we need to register all the dependencies and components in this module are depenndent upon
   providers: [
     CoursesService,
-    PostsService
+    PostsService,
+    {
+      provide: ErrorHandler, // class we want to replace
+      useClass: AppErrorHandler // new class we want to use
+    }
   ],
   bootstrap: [AppComponent]
 })

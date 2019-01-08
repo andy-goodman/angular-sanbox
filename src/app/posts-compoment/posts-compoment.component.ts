@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PostsService} from '../services/posts.service';
 import {AppError} from '../common/app.error';
 import {NotFoundError} from '../common/not-found.error';
+import {BadInputError} from '../common/bad-input.error';
 
 @Component({
   selector: 'app-posts-compoment',
@@ -20,11 +21,14 @@ export class PostsCompomentComponent implements OnInit {
       .subscribe(
         response => {
           this.posts = response.json();
-        },
+        }
+        // Replaces with global error handler
+        /*,
         error => {
           alert('Unhandled error!');
           console.log(error);
         }
+        */
       );
   }
 
@@ -41,15 +45,15 @@ export class PostsCompomentComponent implements OnInit {
           input.value = '';
           console.log(response.json());
         },
-        error => {
+        (error: AppError) => {
           const newPostIndex = this.posts.indexOf(post);
           this.posts.splice(newPostIndex, 1);
 
-          if (error.status === 400) {
+          if (error instanceof BadInputError) {
             // this.form.setErrors(error.json());
           } else {
-            alert('Unhandled error!');
-            console.log(error);
+            // Rethrowing error to process it with global handler
+            throw error;
           }
         }
       );
@@ -60,10 +64,6 @@ export class PostsCompomentComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response.json());
-        },
-        error => {
-          alert('Unhandled error!');
-          console.log(error);
         }
       );
   }
@@ -77,11 +77,12 @@ export class PostsCompomentComponent implements OnInit {
         null,
         (error: AppError) => {
           this.posts.splice(indexOfDeletedPost, 0, post);
+          console.log('I\'m in custom error handler');
 
           if (error instanceof NotFoundError) {
             alert('This post has already been deleted');
           } else {
-            alert('Unhandled error!');
+            throw error;
           }
         }
       );
