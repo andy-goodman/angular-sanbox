@@ -23,12 +23,7 @@ export class PostsService {
   createPost(post: any): Observable<any> {
     return this.http.post(this.url, JSON.stringify(post))
       .pipe(
-        catchError( (error: Response) => {
-          if (error.status === 400) {
-            return throwError( new BadInputError(error));
-          }
-          return throwError( new AppError(error));
-        })
+        catchError( this.handleError)
       );
   }
 
@@ -37,25 +32,24 @@ export class PostsService {
       isRead: true
     }))
       .pipe(
-        catchError( (error: Response) => {
-          if (error.status === 404) {
-            return throwError( new NotFoundError(error));
-          }
-          return throwError( new AppError(error));
-        })
+        catchError( this.handleError)
       );
   }
 
   deletePost(postId: number): Observable<any> {
     return this.http.delete(this.url + '/' + postId)
       .pipe(
-        catchError( (error: Response) => {
-          console.log('delete error', error);
-          if (error.status === 404) {  // in fact it is equals 0
-            return throwError( new NotFoundError(error));
-          }
-          return throwError( new AppError(error));
-        })
+        catchError( this.handleError)
       );
+  }
+
+  private handleError(error: Response) {
+    if (error.status === 400) {
+      return throwError( new BadInputError(error));
+    }
+    if (error.status === 404) {
+      return throwError( new NotFoundError(error));
+    }
+    return throwError( new AppError(error));
   }
 }
