@@ -19,16 +19,7 @@ export class PostsCompomentComponent implements OnInit {
   ngOnInit(): void {
     this.postService.getAll()
       .subscribe(
-        response => {
-          this.posts = response.json();
-        }
-        // Replaces with global error handler
-        /*,
-        error => {
-          alert('Unhandled error!');
-          console.log(error);
-        }
-        */
+        posts => this.posts = posts
       );
   }
 
@@ -40,10 +31,10 @@ export class PostsCompomentComponent implements OnInit {
 
     this.postService.create(post)
       .subscribe(
-        response => {
-          post.id = response.json().id;
+        newPost => {
+          post.id = newPost.id;
           input.value = '';
-          console.log(response.json());
+          console.log(newPost);
         },
         (error: AppError) => {
           const newPostIndex = this.posts.indexOf(post);
@@ -62,8 +53,8 @@ export class PostsCompomentComponent implements OnInit {
   updatePost(post: any) {
     this.postService.update(post)
       .subscribe(
-        response => {
-          console.log(response.json());
+        updatedPost => {
+          console.log(updatedPost);
         }
       );
   }
