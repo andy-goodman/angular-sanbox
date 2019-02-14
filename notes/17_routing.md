@@ -37,3 +37,8 @@ Applying in template
 ```html
 <a [routerLink]="['/profile', follower.id]">{{ follower.login }}</a>
 ```
+
+_routerLinkActive_ attribute value contains a list of classes, that will be applied, if link is active
+```
+routerLinkActive="active current" 
+```
