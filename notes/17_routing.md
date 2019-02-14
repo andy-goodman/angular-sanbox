@@ -42,3 +42,22 @@ _routerLinkActive_ attribute value contains a list of classes, that will be appl
 ```
 routerLinkActive="active current" 
 ```
+
+Getting route parameters
+```
+ngOnInit() {
+this.route.paramMap // observable
+  .subscribe(params => {
+    const id = +params.get('id');
+    console.log('id', id);
+  })
+}
+```
+paramMap is Observable, because previous component is destroyed (onDestroy called), and new one created (onInit called). If previous and next components are the same, is does not destroys, there is one instance of it.
+We need to subscribe on the event of appearance new param.
+
+There is a simpler way to access
+```$xslt
+this.route.snapshot.paramMap.get('id')
+``` 
+Use it, if you absolutely sure, that application will not be routed from the component to itself
