@@ -70,7 +70,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
         component: GithubFollowersComponent
       },
       {
-        path: 'profile/:id',
+        path: 'profile/:id/:username',
         component: GithubProfileComponent
       },
       {
