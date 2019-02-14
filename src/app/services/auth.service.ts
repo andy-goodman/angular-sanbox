@@ -8,7 +8,17 @@ export class AuthService {
 
   login(credentials) { 
    return this.http.post('/api/authenticate', 
-      JSON.stringify(credentials));
+      JSON.stringify(credentials))
+     .map(response => {
+       console.log(response.json());
+       const result = response.json();
+       if (result && result.token) {
+         console.log('saving to localStorage', 'token', result.token);
+         localStorage.setItem('token', result.token);
+         return true;
+       }
+       return false;
+     });
   }
 
   logout() { 
