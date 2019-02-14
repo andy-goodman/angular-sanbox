@@ -43,9 +43,10 @@ _routerLinkActive_ attribute value contains a list of classes, that will be appl
 routerLinkActive="active current" 
 ```
 
-Getting route parameters
+Getting route parameters (required on path)
 ```
 ngOnInit() {
+// for optional, which goes after '?' it will be queryParamMap
 this.route.paramMap // observable
   .subscribe(params => {
     const id = +params.get('id');
@@ -61,3 +62,16 @@ There is a simpler way to access
 this.route.snapshot.paramMap.get('id')
 ``` 
 Use it, if you absolutely sure, that application will not be routed from the component to itself
+
+## How to subscribe to all parameters
+
+```
+Observable.combineLatest([
+  this.route.paramMap,
+  this.route.queryParamMap
+]).subscribe(combined => {
+  const id = combined[0].get('id');     // 0 - paramMap, url parameters
+  const page = combined[1].get('page'); // 1 - queryParamMap, optional query parameters
+  // ...
+}
+```
